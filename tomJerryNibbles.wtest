@@ -1,17 +1,83 @@
 import tomJerryNibbles.*
 
-describe "Grupo de test" {
+describe "Parte 1" {
+  test "la velocidad máxima de Tom es 10" {
+    //P R I M E R  T E S T
+    assert.equals(50, tom.energia())    
+    assert.equals(10, tom.velocidadMaxima())
+  }
+  test "come a Jerry, la velocidad máxima pasa a ser 15.2" {
+    // S E G U N D O  T E S T
+    tom.comer(jerry)
+    assert.equals(102, tom.energia())    
+    assert.equals(15.2, tom.velocidadMaxima())
+  }
+  test "corre 24 metros, entonces su velocidad máxima pasa a ser 14" {
+    //T R A I G O  E L  S E G U N D O  T E S TS
+    tom.comer(jerry)
+    assert.equals(102, tom.energia())    
+    assert.equals(15.2, tom.velocidadMaxima())
 
-  test "test 1" {
-    assert.equals(100, 50+50)
+    //T E S T  3
+    tom.correr(24)         
+    assert.equals(90, tom.energia())
+    assert.equals(14, tom.velocidadMaxima())
   }
 
-  test "test 3" {
-    assert.that(true)
+  test "come a Nibbles, pasa a tener de velocidad máxima 18.7" {
+    //T R A I G O  E L  R E S T O  D E  T E S T S
+    tom.comer(jerry)
+    assert.equals(102, tom.energia())    
+    assert.equals(15.2, tom.velocidadMaxima())
+    tom.correr(24)  
+    assert.equals(90, tom.energia())
+    assert.equals(14, tom.velocidadMaxima())
+
+    //T E S T  4
+    tom.comer(nibbles)
+    assert.equals(137, tom.energia())
+    assert.equals(18.7, tom.velocidadMaxima())
   }
 
-  test "test 4" {
-    assert.notThat(false)
+  test "Jerry cumple años y luego Tom lo vuelve a comer, pasa a tener de velocidad máxima 25.9" {
+    //T R A I G O  E L  R E S T O  D E  T E S T S
+    tom.comer(jerry)
+    assert.equals(102, tom.energia())    
+    assert.equals(15.2, tom.velocidadMaxima())
+    tom.correr(24)  
+    assert.equals(90, tom.energia())
+    assert.equals(14, tom.velocidadMaxima())
+    tom.comer(nibbles)
+    assert.equals(137, tom.energia())
+    assert.equals(18.7, tom.velocidadMaxima())
+    
+    //T E S T  5
+    jerry.cumpleaños()
+    tom.comer(jerry)
+    assert.equals(209, tom.energia())
+    assert.equals(25.9, tom.velocidadMaxima())
   }
 
+  test "corre 38 metros su velocidad pasa a tener de velocidad máxima 24" {
+    //T R A I G O  E L  R E S T O  D E  T E S T S
+    tom.comer(jerry)
+    assert.equals(102, tom.energia())    
+    assert.equals(15.2, tom.velocidadMaxima())
+    tom.correr(24)  
+    assert.equals(90, tom.energia())
+    assert.equals(14, tom.velocidadMaxima())
+    tom.comer(nibbles)
+    assert.equals(137, tom.energia())
+    assert.equals(18.7, tom.velocidadMaxima())
+    jerry.cumpleaños()
+    tom.comer(jerry)
+    assert.equals(209, tom.energia())
+    assert.equals(25.9, tom.velocidadMaxima())
+    
+    //T E S T  6
+    tom.correr(38)
+    assert.equals(190, tom.energia())
+    assert.equals(24, tom.velocidadMaxima())
+
+  }
 }
